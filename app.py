@@ -35,7 +35,7 @@ def get_data():
         else:
             data = "print('')"
 
-        return jsonify({'data': data}), 200
+        return data, 200
 
     except Exception as e:
         return jsonify({'message': f'Error: {str(e)}'}), 500
