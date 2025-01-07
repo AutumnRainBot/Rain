@@ -11,13 +11,9 @@ def receive_data():
         # Récupérer les données envoyées par le client
         data = request.get_data(as_text=True)
 
-        # Générer un ID aléatoire
-        random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
-        data_with_id = f"<dataID={random_string}>{data}"
-
         # Sauvegarder les données dans un fichier (par exemple, 'OutServer.txt')
         with open('OutServer.txt', 'w') as file:
-            file.write(data_with_id)
+            file.write(data)
 
         # Retourner une réponse de succès
         return jsonify({'message': 'Data received successfully!'}), 200
